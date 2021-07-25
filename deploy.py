@@ -1,7 +1,14 @@
 import requests
 import os, sys
 
-print(os.getenv('VC4_SERVER_URL'))
+vc_server = os.getenv('VC4_SERVER_URL')
+vc4_api_key = os.getenv('VC4_API_KEY')
 
-deploy = requests.get('http://192.168.30.93/VirtualControl/config/settings')
-print(deploy.status_code)
+headers = {
+    'accept': 'application/json',
+    'Authorization': vc4_api_key
+}
+
+deploy = requests.get(f'/VirtualControl/config/api/ProgramLibrary', headers=headers)
+
+print(deploy.content)
