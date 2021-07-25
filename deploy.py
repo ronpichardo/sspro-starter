@@ -15,7 +15,7 @@ form_data = {
     'ProgramId': 2,
     'FriendlyName': 'SSProJenkins',
     'Notes': 'Jenkins Deployed This',
-    'StartNow': True
+    'StartNow': 'true'
 }
 
 program_file = {
