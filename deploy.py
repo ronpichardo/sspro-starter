@@ -8,8 +8,7 @@ file_path = sys.argv[1]
 
 headers = {
     'accept': 'application/json',
-    'Authorization': vc4_api_key,
-    'Content-Type': 'multipart/form-data'
+    'Authorization': vc4_api_key
 }
 
 form_data = {
@@ -23,5 +22,5 @@ program_file = {
     'AppFile': open(file_path, 'rb')
 }
 
-deploy = requests.post(f'{vc4_server}/VirtualControl/config/api/ProgramLibrary', headers=headers, files=program_file, data=form_data)
+deploy = requests.put(f'{vc4_server}/VirtualControl/config/api/ProgramLibrary', headers=headers, files=program_file, data=form_data)
 print(deploy.content)
